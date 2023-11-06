@@ -37,7 +37,12 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   // Se implementa el método didChangeAppLifecycleState para poder guardar el estado de la App en el StateProvider
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    // Cada vez que la app se reanude, se inicializa el proveedor de estado de los permisos
+    // con esto se logra que se actualice la pantalla
+    if (state == AppLifecycleState.resumed) {
+      await ref.read(asyncPermissionsProvider.notifier).checkSettings();
+    }
     ref.read(appStateProvider.notifier).state = state;
 
     super.didChangeAppLifecycleState(state);

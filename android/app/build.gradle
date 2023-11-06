@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.miscelaneos"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33   // De acuerdo con los requerimientos de permissions_handler
     ndkVersion flutter.ndkVersion
 
     compileOptions {
