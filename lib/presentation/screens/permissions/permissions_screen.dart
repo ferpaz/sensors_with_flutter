@@ -21,7 +21,7 @@ class _PermissionsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncPermissions = ref.watch(asyncPermissionsProvider);
+    final asyncPermissions = ref.watch(permissionsProvider);
 
     return asyncPermissions.when(
         data: (value) => ListView(
@@ -30,42 +30,42 @@ class _PermissionsView extends ConsumerWidget {
                   value: value.cameraGranted,
                   title: const Text('Cámara'),
                   subtitle: const Text('Permite tomar fotos y videos'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestCameraAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestCameraAccess(),
                 ),
 
                 CheckboxListTile(
                   value: value.photoLibraryGranted,
                   title: const Text('Galería'),
                   subtitle: const Text('Permite acceder a la galería de fotos y videos'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestPhotoLibraryAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestPhotoLibraryAccess(),
                 ),
 
                 CheckboxListTile(
                   value: value.sensorsGranted,
                   title: const Text('Sensores'),
                   subtitle: const Text('Permite acceder a los sensores del dispositivo'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestSensorsAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestSensorsAccess(),
                 ),
 
                 CheckboxListTile(
                   value: value.locationGranted,
                   title: const Text('Ubicación'),
                   subtitle: const Text('Permite acceder a la ubicación del dispositivo'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestLocationAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestLocationAccess(),
                 ),
 
                 CheckboxListTile(
                   value: value.locationAlwaysGranted,
                   title: const Text('Ubicación siempre'),
                   subtitle: const Text('Permite acceder a la ubicación del dispositivo siempre'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestLocationAlwaysAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestLocationAlwaysAccess(),
                 ),
 
                 CheckboxListTile(
                   value: value.locationWhenInUseGranted,
                   title: const Text('Ubicación cuando se usa'),
                   subtitle: const Text('Permite acceder a la ubicación del dispositivo solamente cuando esta App está en uso'),
-                  onChanged: (_) => ref.read(asyncPermissionsProvider.notifier).requestLocationWhenInUseAccess(),
+                  onChanged: (_) => ref.read(permissionsProvider.notifier).requestLocationWhenInUseAccess(),
                 ),
               ],
             ),

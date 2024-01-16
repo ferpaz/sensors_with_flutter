@@ -15,7 +15,7 @@ class AskLocationScreen extends ConsumerWidget {
       body: Center(
         child: FilledButton(
           onPressed: () {
-            ref.read(asyncPermissionsProvider.notifier).requestLocationAccess();
+            ref.read(permissionsProvider.notifier).requestLocationAccess();
           },
           child: const Text('Localización necesaria'),
         ),

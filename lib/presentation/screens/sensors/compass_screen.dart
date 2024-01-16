@@ -9,7 +9,7 @@ class CompassScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final locationGranted = ref.watch(asyncPermissionsProvider).value?.locationGranted ?? false;
+    final locationGranted = ref.watch(permissionsProvider).value?.locationGranted ?? false;
 
     final compassState = ref.watch(compassProvider);
 

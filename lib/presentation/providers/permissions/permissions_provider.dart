@@ -16,7 +16,7 @@ part 'permissions_provider.g.dart';
 // Se requiere que siempre este activo, para que no se reinicie el estado por ninguna razón
 
 @Riverpod(keepAlive: true)
-class AsyncPermissions extends _$AsyncPermissions {
+class Permissions extends _$Permissions {
 
   Future<PermissionState> _initialize() async {
     final permissionsArray = await Future.wait([
