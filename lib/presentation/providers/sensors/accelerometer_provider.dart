@@ -5,7 +5,7 @@ part 'accelerometer_provider.g.dart';
 
 @riverpod
 Stream<AccelerometerState> accelerometerUser(AccelerometerUserRef ref) async* {
-  await for (final event in userAccelerometerEvents) {
+  await for (final event in userAccelerometerEventStream()) {
     yield AccelerometerState(event.x, event.y, event.z);
   }
 }
@@ -13,7 +13,7 @@ Stream<AccelerometerState> accelerometerUser(AccelerometerUserRef ref) async* {
 
 @riverpod
 Stream<AccelerometerState> accelerometerGravity(AccelerometerGravityRef ref) async* {
-  await for (final event in accelerometerEvents) {
+  await for (final event in accelerometerEventStream()) {
     yield AccelerometerState(event.x, event.y, event.z);
   }
 }

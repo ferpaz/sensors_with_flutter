@@ -5,7 +5,7 @@ part 'gyroscope_provider.g.dart';
 
 @riverpod
 Stream<GyroscopeState> gyroscope(GyroscopeRef ref) async* {
-  await for (final event in gyroscopeEvents) {
+  await for (final event in gyroscopeEventStream()) {
     yield GyroscopeState(event.x, event.y, event.z);
   }
 }

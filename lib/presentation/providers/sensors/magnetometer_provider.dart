@@ -5,7 +5,7 @@ part 'magnetometer_provider.g.dart';
 
 @riverpod
 Stream<MagnetometerState> magnetometer(MagnetometerRef ref) async* {
-  await for (final event in magnetometerEvents) {
+  await for (final event in magnetometerEventStream()) {
     yield MagnetometerState(event.x, event.y, event.z);
   }
 }
