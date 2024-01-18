@@ -6,7 +6,7 @@ part of 'accelerometer_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$accelerometerUserHash() => r'e01fc6461b2896a4d722289b716a6ce6537830b3';
+String _$accelerometerUserHash() => r'5ddb3d3de3f6e0a7862b622fec4e32b4b5f010ed';
 
 /// See also [accelerometerUser].
 @ProviderFor(accelerometerUser)
@@ -23,7 +23,7 @@ final accelerometerUserProvider =
 
 typedef AccelerometerUserRef = AutoDisposeStreamProviderRef<AccelerometerState>;
 String _$accelerometerGravityHash() =>
-    r'8abee9908681a04e03f2e8eca0cbc792fea91246';
+    r'2aff0b56202a0c92c745dfce96441acc548709cb';
 
 /// See also [accelerometerGravity].
 @ProviderFor(accelerometerGravity)

@@ -6,7 +6,7 @@ part of 'gyroscope_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$gyroscopeHash() => r'9ea897aff97a0dc1bce860e978353b40c99b05ad';
+String _$gyroscopeHash() => r'4d6fd460bc5f47537e972d59b7c31bb5752529dc';
 
 /// See also [gyroscope].
 @ProviderFor(gyroscope)

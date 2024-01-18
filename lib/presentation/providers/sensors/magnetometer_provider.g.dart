@@ -6,7 +6,7 @@ part of 'magnetometer_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$magnetometerHash() => r'05e7eb351c57e2d3671bc96d2fc02487032763b8';
+String _$magnetometerHash() => r'fab1ea6f3c42d27e8a79b17824c949a06d5eeb84';
 
 /// See also [magnetometer].
 @ProviderFor(magnetometer)
