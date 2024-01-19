@@ -33,7 +33,9 @@ class _PokemonView extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.share_outlined),
               onPressed: () {
-                SharePlugin.shareLink(pokemon.spriteFront, 'Mira este pokemon');
+                SharePlugin.shareLink(
+                  'https://victorious-desert-01b286e0f.4.azurestaticapps.net/pokemons/${pokemon.id}/',
+                  'Mira este pokemon');
               }
             ),
           ],
