@@ -67,5 +67,9 @@
 	<!-- Permission options for the `sensors` group -->
     <key>NSMotionUsageDescription</key>
     <string>motion</string>
+
+	<!-- Permiso para acceder a los biométricos -->
+	<key>NSFaceIDUsageDescription</key>
+	<string>Se utiliza para autenticar a los usuarios y así mejorar la seguridad de la aplicación</string>
 </dict>
 </plist>

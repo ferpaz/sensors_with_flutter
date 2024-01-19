@@ -7,6 +7,7 @@ final menuItems = <MenuItem>[
   MenuItem('Giroscopio Ball', Icons.sports_baseball_outlined, '/sensors/gyroscope_ball'),
   MenuItem('Brujula', Icons.explore, '/sensors/compass'),
   MenuItem('Pokemons', Icons.catching_pokemon, '/pokemons'),
+  MenuItem('Biometrics', Icons.fingerprint, '/biometrics'),
 ];
 
 class MenuItem {

@@ -52,6 +52,7 @@ class _HomeMenuItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, color: Colors.white, size: 50,),
             const SizedBox(height: 10,),
