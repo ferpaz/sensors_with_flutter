@@ -54,7 +54,7 @@ class _HomeMenuItem extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: Colors.white, size: 50,),
+            Icon(icon, color: Colors.white, size: 48,),
             const SizedBox(height: 10,),
             Text(title, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white,)),
           ],

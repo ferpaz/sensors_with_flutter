@@ -49,5 +49,9 @@ final appRouter = GoRouter(
       path: '/location',
       builder: (context, state) => const LocationScreen(),
     ),
+    GoRoute(
+      path: '/map',
+      builder: (context, state) => const MapScreen(),
+    ),
   ],
 );
