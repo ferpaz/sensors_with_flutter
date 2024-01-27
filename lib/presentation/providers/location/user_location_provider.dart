@@ -11,13 +11,3 @@ FutureOr<(double, double)> userLocation (UserLocationRef ref) async {
 
   return (posicion.latitude, posicion.longitude);
 }
-
-@riverpod
-Stream<(double, double)> watchUserLocation (WatchUserLocationRef ref) {
-  final stream = GeoLocatorPlugin.getPositionStream();
-
-  return stream.map((event) {
-    if (event.$1 == null) throw event.$2;
-    return (event.$1!.latitude, event.$1!.longitude);
-  });
-}
