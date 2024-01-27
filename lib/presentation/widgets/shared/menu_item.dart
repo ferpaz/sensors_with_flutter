@@ -10,6 +10,7 @@ final menuItems = <MenuItem>[
   MenuItem('Biometrics', Icons.fingerprint, '/biometrics'),
   MenuItem('Location', Icons.location_pin, '/location'),
   MenuItem('Map', Icons.map_outlined, '/map'),
+  MenuItem('Controlled Map', Icons.gamepad_outlined, '/controlled_map'),
 ];
 
 class MenuItem {

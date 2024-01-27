@@ -53,5 +53,9 @@ final appRouter = GoRouter(
       path: '/map',
       builder: (context, state) => const MapScreen(),
     ),
+    GoRoute(
+      path: '/controlled_map',
+      builder: (context, state) => const ControlledMapScreen(),
+    ),
   ],
 );
