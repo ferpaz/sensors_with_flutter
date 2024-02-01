@@ -11,6 +11,7 @@ final menuItems = <MenuItem>[
   MenuItem('Location', Icons.location_pin, '/location'),
   MenuItem('Map', Icons.map_outlined, '/map'),
   MenuItem('Controlled Map', Icons.gamepad_outlined, '/controlled_map'),
+  MenuItem('Badge', Icons.notifications, '/badge'),
 ];
 
 class MenuItem {

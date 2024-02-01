@@ -71,5 +71,10 @@
 	<!-- Permiso para acceder a los biométricos -->
 	<key>NSFaceIDUsageDescription</key>
 	<string>Se utiliza para autenticar a los usuarios y así mejorar la seguridad de la aplicación</string>
+
+	<key>UIBackgroundModes</key>
+    <array>
+        <string>remote-notification</string>
+    </array>
 </dict>
 </plist>
