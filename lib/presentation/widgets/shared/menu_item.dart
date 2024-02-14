@@ -12,6 +12,8 @@ final menuItems = <MenuItem>[
   MenuItem('Map', Icons.map_outlined, '/map'),
   MenuItem('Controlled Map', Icons.gamepad_outlined, '/controlled_map'),
   MenuItem('Badge', Icons.notifications, '/badge'),
+  MenuItem('Ad Fullscreen', Icons.ad_units_rounded, '/adfullscreen'),
+  MenuItem('Ad Rewarded', Icons.wallet_giftcard_outlined, '/adrewarded'),
 ];
 
 class MenuItem {

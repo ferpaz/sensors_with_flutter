@@ -5,11 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/presentation/providers/providers.dart';
 
-void main() {
+void main() async {
   // Necesito que el móvil solo este en Portrait y no se pueda rotar
   // para que el giroscopio funcione correctamente
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  await AdmobPlugin.initialize();
 
   QuickActionsPlugin.registerActions();
 
@@ -34,6 +36,7 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
     WidgetsBinding.instance.addObserver(this);
     ref.read(permissionsProvider.notifier).checkSettings();
+    ref.read(showAdsProvider.notifier).checkAdsState();
   }
 
   // Se implementa el método dispose para poder remover el observer del estado de la App

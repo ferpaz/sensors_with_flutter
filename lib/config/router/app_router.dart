@@ -61,5 +61,14 @@ final appRouter = GoRouter(
       path: '/badge',
       builder: (context, state) => const BadgeScreen(),
     ),
+
+    GoRoute(
+      path: '/adfullscreen',
+      builder: (context, state) => const AdFullScreen(),
+    ),
+    GoRoute(
+      path: '/adrewarded',
+      builder: (context, state) => const AdRewardedScreen(),
+    ),
   ],
 );

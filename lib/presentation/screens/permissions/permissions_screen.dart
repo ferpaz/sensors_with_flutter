@@ -21,6 +21,7 @@ class _PermissionsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final showAds = ref.watch(showAdsProvider);
     final asyncPermissions = ref.watch(permissionsProvider);
 
     return asyncPermissions.when(
@@ -66,6 +67,13 @@ class _PermissionsView extends ConsumerWidget {
                   title: const Text('Ubicación cuando se usa'),
                   subtitle: const Text('Permite acceder a la ubicación del dispositivo solamente cuando esta App está en uso'),
                   onChanged: (_) => ref.read(permissionsProvider.notifier).requestLocationWhenInUseAccess(),
+                ),
+
+                CheckboxListTile(
+                  value: showAds,
+                  title: const Text('Mostrar Anuncios'),
+                  subtitle: const Text('Permite controlar si se muestran anuncios o no en la App'),
+                  onChanged: (_) => ref.read(showAdsProvider.notifier).toggleAds(),
                 ),
               ],
             ),
