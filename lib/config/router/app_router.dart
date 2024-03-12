@@ -70,5 +70,9 @@ final appRouter = GoRouter(
       path: '/adrewarded',
       builder: (context, state) => const AdRewardedScreen(),
     ),
+    GoRoute(
+      path: '/db-pokemons',
+      builder: (context, state) => const DbPokemonsScreen(),
+    )
   ],
 );

@@ -15,6 +15,7 @@ export 'location/controlled_map_screen.dart';
 export 'permissions/ask_location_screen.dart';
 export 'permissions/permissions_screen.dart';
 
+export 'pokemons/db_pokemons_screen.dart';
 export 'pokemons/pokemons_screen.dart';
 export 'pokemons/pokemon_screen.dart';
 
