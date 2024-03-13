@@ -1,3 +1,4 @@
+import 'package:miscelaneos/infrastructure/infrastructure.dart';
 import 'package:workmanager/workmanager.dart';
 
 const fetchBackgroundTaskKey = 'me.ferpaz.sensorsapp.workmanager.fetch-background-pokemon';
@@ -5,11 +6,11 @@ const fetchPeriodicBackgroundTaskKey = 'me.ferpaz.sensorsapp.workmanager.fetch-p
 
 @pragma('vm:entry-point')
 void callbackDispatcher() {
-  Workmanager().executeTask((task, inputData) {
+  Workmanager().executeTask((task, inputData) async {
 
     switch (task) {
       case fetchBackgroundTaskKey:
-        print('Native: called background task: fetchBackgroundTaskKey  --  inputData: $inputData');
+        await cacheNextPokemon();
         break;
 
       case fetchPeriodicBackgroundTaskKey:
@@ -55,4 +56,24 @@ void workManagerRegisterPeriodicBackgroundTask(Map<String, dynamic> inputData) {
       networkType: NetworkType.connected,
     ),
   );
+}
+
+Future cacheNextPokemon() async {
+  print('Native: loadNextPokemon');
+
+  final localDbRepository = IsarPokemonsRepository();
+  final pokemonRepository = PokemonsRepository();
+
+  final lastPokemonId = await localDbRepository.pokemonsCount() + 1;
+
+  try {
+    final (pokemon, message) = await pokemonRepository.getPokemon('$lastPokemonId');
+    if (pokemon == null) throw message;
+
+    await localDbRepository.insertPokemon(pokemon);
+    print ('Native: loadNextPokemon - pokemon inserted: ${pokemon.name}');
+  }
+  catch (e) {
+    print('Native: loadNextPokemon - error: $e');
+  }
 }
