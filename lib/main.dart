@@ -15,6 +15,8 @@ void main() async {
 
   QuickActionsPlugin.registerActions();
 
+  workManagerInitialize();
+
   runApp(const ProviderScope(child: MainApp()));
 }
 

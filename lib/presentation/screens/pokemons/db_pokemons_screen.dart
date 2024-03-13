@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/domain/domain.dart';
 
 
@@ -12,7 +13,7 @@ class DbPokemonsScreen extends StatelessWidget {
         title: const Text('Background Process'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => workManagerRegisterBackgroundTask({ 'hola': 'mundo una vez'}),
             icon: const Icon(Icons.add_alarm_sharp),
           ),
         ],
@@ -23,7 +24,7 @@ class DbPokemonsScreen extends StatelessWidget {
         ]
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {}, // => workManagerRegisterPeriodicBackgroundTask({ 'hola': 'mundo cada 15 minutos'}),
         label: const Text('Activar fetch periódico'),
         icon: const Icon(Icons.av_timer),
       ),
