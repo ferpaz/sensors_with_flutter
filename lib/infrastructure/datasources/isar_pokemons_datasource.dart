@@ -10,25 +10,24 @@ class IsarPokemonsDatasource implements LocalPokemonsDatasourceBase {
   }
 
   Future<Isar> openIsar() async {
-    return await Isar.open(
-        [PokemonSchema],
-        directory: (await getApplicationDocumentsDirectory()).path,
-    );
+    var directory = await getApplicationDocumentsDirectory();
+
+    if (Isar.instanceNames.isEmpty) {
+      return await Isar.open([PokemonSchema], directory: directory.path);
+    }
+
+    return Future.value(Isar.getInstance());
   }
 
   @override
   Future<void> insertPokemon(Pokemon pokemon) async {
     final isar = await db;
-
-    final done = isar.writeTxnSync(()  => isar.pokemons.putSync(pokemon));
-
-    print ('Native: insert done: $done');
+    isar.writeTxnSync(()  => isar.pokemons.putSync(pokemon));
   }
 
   @override
   Future<List<Pokemon>> loadPokemons() async {
     final isar = await db;
-
     return isar.pokemons.where().findAll();
 
   }
@@ -36,7 +35,6 @@ class IsarPokemonsDatasource implements LocalPokemonsDatasourceBase {
   @override
   Future<int> pokemonsCount() async {
     final isar = await db;
-
     return isar.pokemons.count();
   }
 }

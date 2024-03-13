@@ -59,8 +59,6 @@ void workManagerRegisterPeriodicBackgroundTask(Map<String, dynamic> inputData) {
 }
 
 Future cacheNextPokemon() async {
-  print('Native: loadNextPokemon');
-
   final localDbRepository = IsarPokemonsRepository();
   final pokemonRepository = PokemonsRepository();
 
@@ -71,7 +69,6 @@ Future cacheNextPokemon() async {
     if (pokemon == null) throw message;
 
     await localDbRepository.insertPokemon(pokemon);
-    print ('Native: loadNextPokemon - pokemon inserted: ${pokemon.name}');
   }
   catch (e) {
     print('Native: loadNextPokemon - error: $e');
