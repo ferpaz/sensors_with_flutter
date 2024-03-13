@@ -4,7 +4,6 @@ import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/domain/domain.dart';
 import 'package:miscelaneos/presentation/providers/providers.dart';
 
-
 class DbPokemonsScreen extends ConsumerWidget {
   const DbPokemonsScreen({super.key});
 
@@ -12,12 +11,14 @@ class DbPokemonsScreen extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final pokemonsListAsync = ref.watch(pokemonsLocalDbProvider);
 
+    final isBackgroundTaskRunning = ref.watch(backgroundTasksProvider.select((value) => value.isRunning));
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Background Process'),
         actions: [
           IconButton(
-            onPressed: () => workManagerRegisterBackgroundTask({ 'hola': 'mundo una vez'}),
+            onPressed: () => workManagerRegisterBackgroundTask(),
             icon: const Icon(Icons.add_alarm_sharp),
           ),
         ],
@@ -42,8 +43,10 @@ class DbPokemonsScreen extends ConsumerWidget {
         ]
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {}, // => workManagerRegisterPeriodicBackgroundTask({ 'hola': 'mundo cada 15 minutos'}),
-        label: const Text('Activar fetch periódico'),
+        onPressed: () => ref.read(backgroundTasksProvider.notifier).toggleCurrentState(),
+        label: !isBackgroundTaskRunning
+          ? const Text('INICIAR tarea de fondo')
+          : const Text('DETENER tarea de fondo'),
         icon: const Icon(Icons.av_timer),
       ),
     );

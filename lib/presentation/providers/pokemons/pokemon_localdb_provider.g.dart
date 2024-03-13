@@ -6,7 +6,7 @@ part of 'pokemon_localdb_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pokemonsLocalDbHash() => r'fa9e6ae3fa2c11e2f7062b0726c73b516de4e3ba';
+String _$pokemonsLocalDbHash() => r'5965ca34998f1c5dded1c832a99517cda22ce808';
 
 /// See also [pokemonsLocalDb].
 @ProviderFor(pokemonsLocalDb)

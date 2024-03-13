@@ -14,7 +14,7 @@ void callbackDispatcher() {
         break;
 
       case fetchPeriodicBackgroundTaskKey:
-        print('Native: called background task: fetchPeriodicBackgroundTaskKey  --  inputData: $inputData');
+        await cacheNextPokemon();
         break;
 
       case Workmanager.iOSBackgroundTask:
@@ -33,10 +33,10 @@ void workManagerInitialize() {
   Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
 }
 
-void workManagerRegisterBackgroundTask(Map<String, dynamic> inputData) {
+void workManagerRegisterBackgroundTask({String keyName = fetchBackgroundTaskKey, Map<String, dynamic>? inputData }) {
   Workmanager().registerOneOffTask(
-    fetchBackgroundTaskKey,
-    fetchBackgroundTaskKey,
+    keyName,
+    keyName,
     initialDelay: const Duration(seconds: 3),
     inputData: inputData,
     constraints: Constraints(
@@ -45,17 +45,21 @@ void workManagerRegisterBackgroundTask(Map<String, dynamic> inputData) {
   );
 }
 
-void workManagerRegisterPeriodicBackgroundTask(Map<String, dynamic> inputData) {
+void workManagerRegisterPeriodicBackgroundTask({String keyName = fetchPeriodicBackgroundTaskKey, Map<String, dynamic>? inputData }) {
   Workmanager().registerPeriodicTask(
-    fetchPeriodicBackgroundTaskKey,
-    fetchPeriodicBackgroundTaskKey,
+    keyName,
+    keyName,
     initialDelay: const Duration(seconds: 3),
-    frequency: const Duration(minutes: 15),
+    frequency: const Duration(seconds: 10),   // lo va a cambiar a 15 minutos
     inputData: inputData,
     constraints: Constraints(
       networkType: NetworkType.connected,
     ),
   );
+}
+
+void workManagerCancelPeriodicBackgroundTask({ required String keyName }) {
+  Workmanager().cancelByUniqueName(keyName);
 }
 
 Future cacheNextPokemon() async {
