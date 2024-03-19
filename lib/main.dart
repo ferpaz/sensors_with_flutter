@@ -11,10 +11,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
+  // inicializa los settings contenidos en el archivo .env
+  await Settings.initialize();
+
+  // inicializa el plugin de Admob
   await AdmobPlugin.initialize();
 
+  // inicializa el plugin de quick actions
   QuickActionsPlugin.registerActions();
 
+  // inicializa el workmanager para ejecutar tareas en background
   workManagerInitialize();
 
   runApp(const ProviderScope(child: MainApp()));

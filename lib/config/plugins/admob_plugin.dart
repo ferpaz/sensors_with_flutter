@@ -1,13 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
-final adBannerId = Platform.isAndroid ? 'ca-app-pub-5545222601687913/1489739666' : 'ca-app-pub-5545222601687913/5580974011';
-
-final adInterstitialId = Platform.isAndroid ? 'ca-app-pub-5545222601687913/5300824292' : 'ca-app-pub-5545222601687913/6366493954';
-
-final adRewardedId = Platform.isAndroid ? 'ca-app-pub-5545222601687913/2099945886' : 'ca-app-pub-5545222601687913/1506470391';
+import 'package:miscelaneos/config/config.dart';
 
 class AdmobPlugin {
   static Future<void> initialize() async {
@@ -17,7 +11,7 @@ class AdmobPlugin {
 
   static Future<BannerAd> loadBannerAd() async {
     return BannerAd(
-      adUnitId: adBannerId,
+      adUnitId: Settings.googleMobileAdsSettings.adBannerId,
       request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
@@ -37,7 +31,7 @@ class AdmobPlugin {
     Completer<InterstitialAd> completer = Completer<InterstitialAd>();
 
     InterstitialAd.load(
-        adUnitId: adInterstitialId,
+        adUnitId: Settings.googleMobileAdsSettings.adInterstitialId,
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           // Called when an ad is successfully received.
@@ -76,7 +70,7 @@ class AdmobPlugin {
     Completer<RewardedAd> completer = Completer<RewardedAd>();
 
     RewardedAd.load(
-        adUnitId: adRewardedId,
+        adUnitId: Settings.googleMobileAdsSettings.adRewardedId,
         request: const AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           // Called when an ad is successfully received.
